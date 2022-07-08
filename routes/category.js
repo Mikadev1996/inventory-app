@@ -7,3 +7,5 @@ const vapeController = require('../controllers/vapeController');
 router.get('/thp', thpController.thp_list);
 
 router.get('/vapes', vapeController.vape_list);
+
+module.exports = router;

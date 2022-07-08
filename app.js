@@ -7,6 +7,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 
 const indexRouter = require('./routes/index');
+const categoryRouter = require('./routes/category');
 const mongoose = require("mongoose");
 
 const app = express();
@@ -24,11 +25,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/category', categoryRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// app.use(function(req, res, next) {
+//   next(createError(404));
+// });
+
+app.use((req, res, next) => {
+  res.status(404)
+      .render('404', {
+        title: "404: Page not found"
+      })
+})
 
 // error handler
 app.use(function(err, req, res, next) {
