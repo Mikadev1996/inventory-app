@@ -27,7 +27,7 @@ let thps = [];
 let vapes = [];
 
 function categoryCreate(name, description, callback) {
-    const category = new Category({name: name});
+    const category = new Category({name: name, description: description});
 
     category.save(err => {
         if (err) {

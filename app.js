@@ -8,6 +8,7 @@ const helmet = require('helmet');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const mongoose = require("mongoose");
 
 var app = express();
 app.use(compression());
@@ -41,5 +42,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+const dev_db_url = "mongodb+srv://mika:mika@cluster0.ntegc.mongodb.net/inventory-app?retryWrites=true&w=majority";
+const myMongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(myMongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+
+const db = mongoose.connection;
+db.on('error', () => {
+  console.error.bind(console, 'MongoDB connection error');
+})
 
 module.exports = app;

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const VapeSchema = new Schema({
     name: {type: String, required: true},
-    release_date: {type: Date, required: true},
+    release_date: {type: Number, required: true},
     number_in_stock: {type: Number, required: true},
     category: [{type: Schema.Types.ObjectId, ref: 'Category'}],
 })
