@@ -11,8 +11,9 @@ if (!userArgs[0].startsWith('mongodb')) {
 }
 */
 const async = require('async')
-
-
+const Category = require('./models/category');
+const Thp = require('./models/thp');
+const Vape = require('./models/vape');
 
 const mongoose = require('mongoose');
 const mongoDB = userArgs[0];
@@ -21,92 +22,68 @@ mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-const thps = [];
-const vapes = [];
+let categories = [];
+let thps = [];
+let vapes = [];
 
-function thpCreate() {
+function categoryCreate(name, description, callback) {
+    const category = new Category({name: name});
 
-}
-
-function vapeCreate() {
-
-}
-
-function authorCreate(first_name, family_name, d_birth, d_death, cb) {
-    let authordetail = {first_name:first_name , family_name: family_name }
-    if (d_birth != false) authordetail.date_of_birth = d_birth
-    if (d_death != false) authordetail.date_of_death = d_death
-
-    const author = new Author(authordetail);
-
-    author.save(function (err) {
+    category.save(err => {
         if (err) {
-            cb(err, null)
-            return
-        }
-        console.log('New Author: ' + author);
-        authors.push(author)
-        cb(null, author)
-    }  );
-}
-
-function genreCreate(name, cb) {
-    const genre = new Genre({ name: name });
-
-    genre.save(function (err) {
-        if (err) {
-            cb(err, null);
+            callback(null, category);
             return;
         }
-        console.log('New Genre: ' + genre);
-        genres.push(genre)
-        cb(null, genre);
-    }   );
+        console.log('New Category: ' + category);
+        categories.push(category);
+        callback(null, category)
+    });
 }
 
-function bookCreate(title, summary, isbn, author, genre, cb) {
-    let bookdetail = {
-        title: title,
-        summary: summary,
-        author: author,
-        isbn: isbn
+function thpCreate(name, description, release_date, number_in_stock, consumable, category, callback) {
+    const thpDetail = {
+        name: name,
+        description: description,
+        release_date: release_date,
+        number_in_stock: number_in_stock,
+        consumable: consumable,
+        category: category,
     }
-    if (genre != false) bookdetail.genre = genre
 
-    const book = new Book(bookdetail);
-    book.save(function (err) {
+    const thp = new Thp(thpDetail);
+
+    thp.save(err => {
         if (err) {
-            cb(err, null)
-            return
+            callback(null, thp);
+            return;
         }
-        console.log('New Book: ' + book);
-        books.push(book)
-        cb(null, book)
-    }  );
+        console.log('New Thp: ' + thp);
+        thps.push(thp);
+        callback(null, thp)
+    })
 }
 
-
-function bookInstanceCreate(book, imprint, due_back, status, cb) {
-    bookinstancedetail = {
-        book: book,
-        imprint: imprint
+function vapeCreate(name, description, release_date, number_in_stock, category, callback) {
+    const vapeDetail = {
+        name: name,
+        description: description,
+        release_date: release_date,
+        number_in_stock: number_in_stock,
+        category: category,
     }
-    if (due_back != false) bookinstancedetail.due_back = due_back
-    if (status != false) bookinstancedetail.status = status
 
-    var bookinstance = new BookInstance(bookinstancedetail);
-    bookinstance.save(function (err) {
+    const vape = new Vape(vapeDetail);
+
+    vape.save(err => {
         if (err) {
-            console.log('ERROR CREATING BookInstance: ' + bookinstance);
-            cb(err, null)
-            return
+            callback(null, vape);
+            return;
         }
-        console.log('New BookInstance: ' + bookinstance);
-        bookinstances.push(bookinstance)
-        cb(null, book)
-    }  );
+        console.log('New Vape: ' + vape);
+        vapes.push(vape);
+        callback(null, vape)
+    })
 }
-
 
 function createGenreAuthors(cb) {
     async.series([
