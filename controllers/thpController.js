@@ -4,7 +4,20 @@ const Vape = require('../models/vape');
 const { body, validationResult } = require('express-validator');
 
 exports.index = (req, res, next) => {
-    res.render('index', { title: 'Express' });
+    async.parallel({
+        thp_count: callback => {
+            Thp.countDocuments({}, callback);
+        },
+        vape_count: callback => {
+            Vape.countDocuments({}, callback);
+        }
+    }, (err, results) => {
+        res.render('index', {
+            title: 'BAT Portfolio',
+            err: err,
+            data: results,
+        })
+    })
 }
 
 exports.thp_list = (req, res, next) => {
