@@ -21,7 +21,9 @@ exports.index = (req, res, next) => {
 }
 
 exports.thp_list = (req, res, next) => {
-    res.send('Not Implemented yet');
+    res.render('thp_list', {
+        title: "List of our Tobacco Heating Products"
+    })
 }
 
 exports.thp_detail = (req, res, next) => {

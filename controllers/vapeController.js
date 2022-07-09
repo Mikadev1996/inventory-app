@@ -3,7 +3,9 @@ const Vape = require('../models/vape');
 const { body, validationResult } = require('express-validator');
 
 exports.vape_list = (req, res, next) => {
-    res.send('Not Implemented yet');
+    res.render('vape_list', {
+        title: "List of our Vape devices"
+    })
 }
 
 exports.vape_detail = (req, res, next) => {

@@ -7,10 +7,12 @@ block content
   main.content
     div.content-display
       div#thp
-        p Click to view range of our #{data.thp_count} Tobacco Heating Products
+         a(href='/category/thp')
+          p Click to view range of our #{data.thp_count} Tobacco Heating Products
 
       div#vapes
-        p Click to view our range of #{data.vape_count} Vapes
+        a(href='/category/vapes')
+          p Click to view our range of #{data.vape_count} Vapes
 
   footer
     div.footer-content
