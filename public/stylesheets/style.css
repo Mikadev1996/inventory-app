@@ -54,6 +54,10 @@ nav {
   align-items: center;
 }
 
+.nav-links a {
+  color: white;
+}
+
 .app {
   width: 100vw;
   height: 100vh;
@@ -70,9 +74,22 @@ nav {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.footer-border {
   position: fixed;
   width: 100vw;
+  height: 13px;
   bottom: 0;
   background-image: url('../images/BAT_colour_line.png');
   background-size: cover;
+}
+
+.footer-content {
+  width: 100vw;
+  height: 50px;
+  background-color: whitesmoke;
 }
