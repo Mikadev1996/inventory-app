@@ -2,7 +2,12 @@ extends layout
 
 block content
   nav
-    div#nav-content
+    div.nav-content
+      div.nav-text
+        p #{title}
+    div.nav-links
+      a(href='/')
+        p Home
 
 
   main.content
@@ -17,4 +22,4 @@ block content
 
   footer
     div.footer-content
-      p Hello
+    div.footer-border
