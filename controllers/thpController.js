@@ -22,7 +22,7 @@ exports.index = (req, res, next) => {
 
 exports.thp_list = (req, res, next) => {
     Thp.find({})
-        .sort({name: 1})
+        .sort({release_date: 1})
         .exec((err, list_thp) => {
             if (err) return(next(err));
             res.render('thp_list', {
@@ -33,12 +33,28 @@ exports.thp_list = (req, res, next) => {
 }
 
 exports.thp_detail = (req, res, next) => {
-    res.send('Not Implemented yet');
+    Thp.findById(req.params.id)
+        .exec((err, results) => {
+            if (err) return (next(err));
+            res.render('thp_detail', {
+                title: results.name,
+            })
+        })
 }
 
-exports.thp_create_get = (req, res, next) => {
-    res.send('Not Implemented yet');
-}
+exports.thp_create_get = (req, res, next) => [
+    body('name', 'Name must not be empty.').trim.isLength({min: 1}).escape(),
+    body('release_date', 'Release Date must not be empty.').trim.isLength({min: 1}).escape(),
+    body('number_in_stock', 'Number of Devices must not be empty.').trim.isLength({min: 1}).escape(),
+    body('consumable', 'Consumable Type must not be empty.').trim.isLength({min: 1}).escape(),
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+
+        }
+    }
+]
 
 exports.thp_create_post = (req, res, next) => {
     res.send('Not Implemented yet');

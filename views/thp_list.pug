@@ -11,12 +11,16 @@ block content
 
 
     main.content
-        div.content-display
-            ul
+        div.list-page-container
+            div.list-display
                 each item in thp_list
-                    li
-                        a(href=item.url) #{item.name}
+                    div.list-item
+                        a(href=item.url)
+                            p.content-text #{item.name}
 
+            div
+                a(href='/category/thp/create')
+                    p.text-button#thp-create Add your own device to this list!
     footer
         div.footer-content
             p Copyright © 2022, GitHub // Mika.dev

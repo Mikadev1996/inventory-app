@@ -2,6 +2,19 @@ extends layout
 
 block content
     nav
-        h1= title
-        a(href='/')
-            p Home
+        div.nav-content
+            div.nav-text
+                p BAT Portfolio
+        div.nav-links
+            a(href='/')
+                p Home
+
+
+    main.content
+        div.content-display
+            h1 #{title}
+
+    footer
+        div.footer-content
+            p Copyright © 2022, GitHub // Mika.dev
+        div.footer-border
