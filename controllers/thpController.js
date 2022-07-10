@@ -21,9 +21,15 @@ exports.index = (req, res, next) => {
 }
 
 exports.thp_list = (req, res, next) => {
-    res.render('thp_list', {
-        title: "List of our Tobacco Heating Products"
-    })
+    Thp.find({})
+        .sort({name: 1})
+        .exec((err, list_thp) => {
+            if (err) return(next(err));
+            res.render('thp_list', {
+                title: "Tobacco Heating Products",
+                thp_list: list_thp,
+            })
+        })
 }
 
 exports.thp_detail = (req, res, next) => {

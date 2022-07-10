@@ -12,6 +12,10 @@ block content
 
     main.content
         div.content-display
+            ul
+                each item in thp_list
+                    li
+                        a(href=item.url) #{item.name}
 
     footer
         div.footer-content
