@@ -1,0 +1,27 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.footer-border {
+    position: fixed;
+    width: 100vw;
+    height: 13px;
+    bottom: 0;
+    background-image: url('../images/BAT_colour_line.png');
+    background-size: cover;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 37px;
+    margin-bottom: 13px;
+    background-color: whitesmoke;
+}
+
+.footer-content p {
+    padding-left: 30px;
+}
