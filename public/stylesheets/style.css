@@ -50,11 +50,29 @@ a {
 
 .content-text {
   font-size: 18px;
-
 }
 
 .content-end {
   font-size: 20px;
+  margin-top: 30px;
   color: #00BCF2;
   font-weight: normal;
+}
+
+.my-image {
+  width: 300px;
+  height: auto;
+  border: 1px solid #004f9f;
+
+}
+
+#info div p {
+  background-color: #004f9f;
+  color: white;
+  width: 100px;
+  padding: 10px;
+}
+
+.text-link {
+  color: #004f9f;
 }
