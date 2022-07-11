@@ -12,11 +12,25 @@ block content
 
     main.content
         div.content-display
-            h1 #{data.name}
-            a(href=data.url + '/update')
-                p Update Device
-            a(href=data.url + '/delete')
-                p Delete Device
+            div.list-page-container
+                div.list-display
+                    .detail-list-item
+                        h1.detail-content-heading #{data.name}
+                        div.list-item-info
+                            strong.info-text Release Date:
+                            p.info-text #{data.release_date}
+                        div.list-item-info
+                            strong.info-text Number of Devices:
+                            p.info-text #{data.number_in_stock}
+                        div.list-item-info
+                            strong.info-text Consumable Type:
+                            p.info-text #{data.consumable}
+
+            div.select-options
+                a(href=data.url + '/update')
+                    p.update-device Update Device
+                a(href=data.url + '/delete')
+                    p.delete-device Delete Device
 
 
 

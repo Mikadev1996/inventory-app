@@ -18,7 +18,7 @@ a {
 
 .content {
   width: 100vw;
-  /*height: calc(100vh - 105px);*/
+  min-height: calc(100vh - 105px);
   margin-top: 105px;
   display: flex;
   justify-content: center;
@@ -47,8 +47,16 @@ a {
   color: #00BCF2;
 }
 
+.detail-content-heading {
+  font-size: 28px;
+  color: #00BCF2;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid whitesmoke;
+}
+
 .content-text {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .content-end {
@@ -70,6 +78,26 @@ a {
   color: white;
   width: 100px;
   padding: 10px;
+}
+
+.update-device {
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #afca0b;
+}
+
+.delete-device {
+  width: 100px;
+  height: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ef7d00;
 }
 
 .text-link {
@@ -117,4 +145,8 @@ a {
 
 .custom-list-item:hover {
   background: whitesmoke;
+}
+
+.detail-list-item {
+
 }
