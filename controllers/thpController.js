@@ -2,6 +2,7 @@ const async = require('async');
 const Thp = require('../models/thp');
 const Vape = require('../models/vape');
 const { body, validationResult } = require('express-validator');
+const {thp_list} = require("./thpController");
 
 exports.index = (req, res, next) => {
     async.parallel({

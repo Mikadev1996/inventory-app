@@ -16,6 +16,7 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
 .content {
   width: 100vw;
   height: calc(100vh - 105px);
@@ -27,7 +28,6 @@ a {
 .content-display {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
   width: 100%;
   height: calc(100% - 50px);
   flex-wrap: wrap;
@@ -35,12 +35,12 @@ a {
 
 .left-content {
   width: 35rem;
-  padding: 20px;
+  margin: 20px;
 }
 
 .right-content {
   width: 35rem;
-  padding: 20px;
+  margin: 20px;
 }
 
 .content-heading {

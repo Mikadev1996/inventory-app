@@ -24,19 +24,19 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 let thps = [];
 let vapes = [];
 
-function thpCreate(name, release_date, number_in_stock, consumable, category, callback) {
+function thpCreate(name, release_date, number_in_stock, consumable, img_ref, callback) {
     const thpDetail = {
         name: name,
         release_date: release_date,
         number_in_stock: number_in_stock,
         consumable: consumable,
-        category: category,
+        img_ref: img_ref
     }
 
     const thp = new Thp(thpDetail);
-
     thp.save(err => {
         if (err) {
+            console.log(err);
             callback(null, thp);
             return;
         }
@@ -46,12 +46,11 @@ function thpCreate(name, release_date, number_in_stock, consumable, category, ca
     })
 }
 
-function vapeCreate(name, release_date, number_in_stock, category, callback) {
+function vapeCreate(name, release_date, number_in_stock, callback) {
     const vapeDetail = {
         name: name,
         release_date: release_date,
         number_in_stock: number_in_stock,
-        category: category,
     }
 
     const vape = new Vape(vapeDetail);
@@ -70,13 +69,13 @@ function vapeCreate(name, release_date, number_in_stock, category, callback) {
 function createThps(callback) {
     async.series([
         function (callback) {
-            thpCreate("Glo (Express)", 2017, 10, "Superslim", "THP", callback);
+            thpCreate("Glo (Express)", 2017, 10, "Superslim", "https://i.imgur.com/rFseTfb.png", callback);
         },
         function (callback) {
-            thpCreate("Glo nano (Lantern)", 2019, 5, "Superslim", "THP", callback);
+            thpCreate("Glo nano (Lantern)", 2019, 5, "Superslim", "https://i.imgur.com/sGGUTsG.png", callback);
         },
         function (callback) {
-            thpCreate("Glo Hyper (Spirit)", 2020, 100, "Demislim", "THP", callback);
+            thpCreate("Glo Hyper (Spirit)", 2020, 100, "Demislim",  "https://i.imgur.com/rUtV0P3.png", callback);
         },
     ],
         callback)
@@ -85,10 +84,10 @@ function createThps(callback) {
 function createVapes(callback) {
     async.series([
             function (callback) {
-                vapeCreate("ePod", 2016, 25, "Vape", callback);
+                vapeCreate("ePod", 2016, 25, callback);
             },
             function (callback) {
-                vapeCreate("ePod 2", 2019, 1000, "Vape", callback);
+                vapeCreate("ePod 2", 2019, 1000,  callback);
             },
         ],
             callback)
