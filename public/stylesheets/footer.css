@@ -18,7 +18,8 @@ footer {
     align-items: center;
     width: 100vw;
     height: 37px;
-    margin-bottom: 13px;
+    position: fixed;
+    bottom: 13px;
     background-color: whitesmoke;
 }
 
