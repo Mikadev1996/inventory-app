@@ -13,14 +13,64 @@ block content
     main.content
         div.list-page-container
             div.list-display
+                div.list-item
+                    div.list-item-info
+                        strong.info-text Name:
+                        p.info-text Glo Pro (Express)
+                    div.list-item-info
+                        strong.info-text Release Date:
+                        p.info-text 2017
+                    div.list-item-info
+                        strong.info-text Number of Devices:
+                        p.info-text 3,000,000
+                    div.list-item-info
+                        strong.info-text Consumable Type:
+                        p.info-text Demislim
+                    img.device-image(src='../images/pro.png')
+                div.list-item
+                    div.list-item-info
+                        strong.info-text Name:
+                        p.info-text Glo Hyper (Lantern)
+                    div.list-item-info
+                        strong.info-text Release Date:
+                        p.info-text 2017
+                    div.list-item-info
+                        strong.info-text Number of Devices:
+                        p.info-text 3,000,000
+                    div.list-item-info
+                        strong.info-text Consumable Type:
+                        p.info-text Superslim
+                    img.device-image(src='../images/hyper.png')
+                div.list-item
+                    div.list-item-info
+                        strong.info-text Name:
+                        p.info-text Glo Hyper Plus (Trinity)
+                    div.list-item-info
+                        strong.info-text Release Date:
+                        p.info-text 2017
+                    div.list-item-info
+                        strong.info-text Number of Devices:
+                        p.info-text 3,000,000
+                    div.list-item-info
+                        strong.info-text Consumable Type:
+                        p.info-text Superslim
+                    img.device-image(src='../images/hyper_plus.png')
                 each item in thp_list
-                    div.list-item
+                    div.list-item.custom-list-item
                         a(href=item.url)
-                            p.content-text #{item.name}
-                            p.content-text #{item.release_date}
-                            p.content-text #{item.number_in_stock}
-                            p.content-text #{item.consumable}
-                            p.content-text #{item.img_ref}
+                            div.list-item-info
+                                strong.info-text Name:
+                                p.info-text #{item.name}
+                            div.list-item-info
+                                strong.info-text Release Date:
+                                p.info-text #{item.release_date}
+                            div.list-item-info
+                                strong.info-text Number of Devices:
+                                p.info-text #{item.number_in_stock}
+                            div.list-item-info
+                                strong.info-text Consumable Type:
+                                p.info-text #{item.consumable}
+                            div.device-image-null
 
             div
                 a(href='/category/thp/create')
