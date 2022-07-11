@@ -37,7 +37,7 @@ exports.thp_detail = (req, res, next) => {
         .exec((err, results) => {
             if (err) return (next(err));
             res.render('thp_detail', {
-                title: results.name,
+                data: results
             })
         })
 }
@@ -75,7 +75,10 @@ exports.thp_create_post = [
 
 
 exports.thp_delete_get = (req, res, next) => {
-    res.send('Not Implemented yet');
+    res.render('thp_delete', {
+        title: "Delete THP",
+        thp_id: req.params.id
+    })
 }
 
 exports.thp_delete_post = (req, res, next) => {
