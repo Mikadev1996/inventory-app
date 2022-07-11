@@ -13,8 +13,10 @@ block content
     main.content
         div.content-display
             h1 #{data.name}
+            a(href=data.url + '/update')
+                p Update Device
             a(href=data.url + '/delete')
-                p Delete device
+                p Delete Device
 
 
 

@@ -89,9 +89,40 @@ exports.thp_delete_post = (req, res, next) => {
 }
 
 exports.thp_update_get = (req, res, next) => {
-    res.send('Not Implemented yet');
+    Thp.findById(req.params.id)
+        .exec((err, results) => {
+            if (err) return next(err);
+            res.render('thp_update', {
+                data: results
+            })
+        })
 }
 
-exports.thp_update_post = (req, res, next) => {
-    res.send('Not Implemented yet');
-}
+exports.thp_update_post = [
+    body('name', 'Name must not be empty.').trim().isLength({min: 1}).escape(),
+    body('release_date', 'Release Date must not be empty.').trim().isLength({min: 1}).escape(),
+    body('number_in_stock', 'Number of Devices must not be empty.').trim().isLength({min: 1}).escape(),
+    body('consumable', 'Consumable Type must not be empty.').trim().isLength({min: 1}).escape(),
+
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            console.log('errrr');
+            return;
+        }
+
+        let thp = new Thp({
+            name: req.body.name,
+            release_date: req.body.release_date,
+            number_in_stock: req.body.number_in_stock,
+            consumable: req.body.consumable,
+            _id: req.params.id
+        })
+
+        Thp.findByIdAndUpdate(req.params.id, thp, {}, function (err,theThp) {
+            if (err) { return next(err); }
+            // Successful - redirect to book detail page.
+            res.redirect(theThp.url);
+        });
+    }
+]
