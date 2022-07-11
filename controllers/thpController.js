@@ -82,7 +82,10 @@ exports.thp_delete_get = (req, res, next) => {
 }
 
 exports.thp_delete_post = (req, res, next) => {
-    res.send('Not Implemented yet');
+    Thp.findByIdAndRemove(req.body.delete_thp, function deleteThp(err) {
+        if (err) return (next(err));
+        res.redirect('/category/thp');
+    });
 }
 
 exports.thp_update_get = (req, res, next) => {
