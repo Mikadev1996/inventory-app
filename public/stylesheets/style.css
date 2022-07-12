@@ -101,6 +101,7 @@ a {
 }
 
 .text-link {
+  color: #004f9f;
   border-radius: 5px;
 }
 
@@ -119,10 +120,12 @@ a {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 350px;
+  width: 200px;
   height: 450px;
+  margin: 0px 25px;
   border-radius: 5px;
 }
+
 
 #thp-create {
   width: 200px;
@@ -132,6 +135,11 @@ a {
 .device-image {
   width: 100px;
   height: auto;
+}
+
+.vape-image {
+  height: 250px;
+  width: 50px;
 }
 
 .device-image-null {

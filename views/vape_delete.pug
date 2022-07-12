@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    nav
+        div.nav-content
+            div.nav-text
+                p BAT Portfolio
+        div.nav-links
+            a(href='/')
+                p Home
+            a(href='/category/vapes')
+                p Back to Vapes
+
+    main.content
+        div.content-display
+            h1.content-heading Are you sure you want to delete this Vape?
+            div.content-display
+                form(method='POST' action='')
+                    .form-control
+                        label(for='delete_vape')
+                        input#delete_vape(type='hidden', name='delete_vape', required='true', value=vape_id)
+                    div
+                        button.submit-delete(type='submit') Submit
+    footer
+        div.footer-content
+            p Copyright © 2022, GitHub // Mika.dev
+        div.footer-border

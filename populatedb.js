@@ -46,11 +46,12 @@ function thpCreate(name, release_date, number_in_stock, consumable, img_ref, cal
     })
 }
 
-function vapeCreate(name, release_date, number_in_stock, callback) {
+function vapeCreate(name, release_date, number_in_stock, img_ref, callback) {
     const vapeDetail = {
         name: name,
         release_date: release_date,
         number_in_stock: number_in_stock,
+        img_ref: img_ref
     }
 
     const vape = new Vape(vapeDetail);
@@ -84,10 +85,10 @@ function createThps(callback) {
 function createVapes(callback) {
     async.series([
             function (callback) {
-                vapeCreate("ePod", 2016, 25, callback);
+                vapeCreate("ePod", 2016, 25, "", callback);
             },
             function (callback) {
-                vapeCreate("ePod 2", 2019, 1000,  callback);
+                vapeCreate("ePod 2", 2019, 1000, "", callback);
             },
         ],
             callback)

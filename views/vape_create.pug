@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    nav
+        div.nav-content
+            div.nav-text
+                p BAT Portfolio
+        div.nav-links
+            a(href='/')
+                p Home
+            a(href='/category/thp')
+                p Back to THPs
+
+    main.content
+        div.content-display
+            form#form-container(method='POST' action='')
+                .header
+                    h2 Create Vape Device Form
+                div#form.form
+                    .form-control
+                        label(for='name') Name:
+                        input#name(type='text' name='name' placeholder='Name' required='true')
+                        i.fas.fa-check-circle
+                        i.fas.fa-exclamation-circle
+                        small Error Message
+                    .form-control
+                        label(for='release_date') Release Date:
+                        input#release_date(type='text' name='release_date' placeholder='Release Date (Year)' required='true')
+                        i.fas.fa-check-circle
+                        i.fas.fa-exclamation-circle
+                        small Error Message
+                    .form-control
+                        label(for='number_in_stock') Number of Devices:
+                        input#number_in_stock(type='text' name='number_in_stock' placeholder='e.g. 2' maxlength='16' required='true')
+                        i.fas.fa-check-circle
+                        i.fas.fa-exclamation-circle
+                        small Error Message
+                    div
+                        button(type='submit') Submit
+
+
+    footer
+        div.footer-content
+            p Copyright © 2022, GitHub // Mika.dev
+        div.footer-border

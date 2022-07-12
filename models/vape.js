@@ -7,6 +7,7 @@ const VapeSchema = new Schema({
     release_date: {type: Number, required: true},
     number_in_stock: {type: Number, required: true},
     category: [{type: Schema.Types.ObjectId, ref: 'Category'}],
+    img_ref: {type: String}
 })
 
 VapeSchema

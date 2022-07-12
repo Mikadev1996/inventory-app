@@ -2,6 +2,62 @@ extends layout
 
 block content
     nav
-        h1= title
-        a(href='/')
-            p Home
+        div.nav-content
+            div.nav-text
+                p BAT Portfolio
+        div.nav-links
+            a(href='/')
+                p Home
+
+
+    main.content
+        div.list-page-container
+            div
+                h1.content-heading Vapour Portfolio
+                p.content-text Tobacco Heating Products
+
+            div.list-display
+                div.list-item
+                    div.list-item-info
+                        strong.info-text Name:
+                        p.info-text ePod (Alto)
+                    div.list-item-info
+                        strong.info-text Release Date:
+                        p.info-text 2018
+                    div.list-item-info
+                        strong.info-text Number of Devices:
+                        p.info-text 10,000,000
+                    img.vape-image(src='../images/epod.png')
+
+                div.list-item
+                    div.list-item-info
+                        strong.info-text Name:
+                        p.info-text ePod 2
+                    div.list-item-info
+                        strong.info-text Release Date:
+                        p.info-text 2020
+                    div.list-item-info
+                        strong.info-text Number of Devices:
+                        p.info-text 5,000,000
+                    img.vape-image(src='../images/epod2.png')
+                each item in vape_list
+                     div.list-item.custom-list-item
+                         a(href=item.url)
+                             div.list-item-info
+                                 strong.info-text Name:
+                                 p.info-text #{item.name}
+                             div.list-item-info
+                                 strong.info-text Release Date:
+                                 p.info-text #{item.release_date}
+                             div.list-item-info
+                                 strong.info-text Number of Devices:
+                                 p.info-text #{item.number_in_stock}
+                             div.vape-image
+
+            div
+                a(href='/category/vapes/create')
+                    p.text-button#thp-create Add your own device to this list!
+    footer
+        div.footer-content
+            p Copyright © 2022, GitHub // Mika.dev
+        div.footer-border

@@ -38,4 +38,6 @@ router.get('/vapes/:id/update', vapeController.vape_update_get);
 
 router.post('/vapes/:id/update', vapeController.vape_update_post);
 
+router.get('/vapes/:id', vapeController.vape_detail);
+
 module.exports = router;
