@@ -168,3 +168,7 @@ a {
 .submit-delete:hover {
   background-color: #e72582;
 }
+
+.content-description {
+  max-width: 32rem;
+}
