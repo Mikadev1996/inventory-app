@@ -101,7 +101,7 @@ a {
 }
 
 .text-link {
-  color: #004f9f;
+  border-radius: 5px;
 }
 
 .list-page-container {
@@ -126,6 +126,7 @@ a {
 
 #thp-create {
   width: 200px;
+  border-radius: 5px;
 }
 
 .device-image {
@@ -147,6 +148,15 @@ a {
   background: whitesmoke;
 }
 
-.detail-list-item {
+.submit-delete {
+  background-color: #004f9f;
+  color: white;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
 
+.submit-delete:hover {
+  background-color: #e72582;
 }
