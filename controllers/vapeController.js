@@ -19,7 +19,7 @@ exports.vape_detail = (req, res, next) => {
     Vape.findById(req.params.id)
         .exec((err, results) => {
             if (err) return (next(err));
-            res.render('thp_detail', {
+            res.render('vape_detail', {
                 data: results
             })
         })
@@ -57,7 +57,7 @@ exports.vape_create_post = [
 exports.vape_delete_get = (req, res, next) => {
     res.render('vape_delete', {
         title: "Delete Vape",
-        thp_id: req.params.id
+        vape_id: req.params.id
     })
 }
 
@@ -68,7 +68,17 @@ exports.vape_delete_post = (req, res, next) => {
     });
 }
 
-exports.vape_update_get = [
+exports.vape_update_get = (req, res, next) => {
+    Vape.findById(req.params.id)
+        .exec((err, results) => {
+            if (err) return next(err);
+            res.render('vape_update', {
+                data: results
+            })
+        })
+}
+
+exports.vape_update_post = [
     body('name', 'Name must not be empty.').trim().isLength({min: 1}).escape(),
     body('release_date', 'Release Date must not be empty.').trim().isLength({min: 1}).escape(),
     body('number_in_stock', 'Number of Devices must not be empty.').trim().isLength({min: 1}).escape(),
@@ -87,7 +97,7 @@ exports.vape_update_get = [
             _id: req.params.id
         })
 
-        Vape.findByIdAndUpdate(req.params.id, thp, {}, function (err,theVape) {
+        Vape.findByIdAndUpdate(req.params.id, vape, {}, function (err,theVape) {
             if (err) { return next(err); }
             // Successful - redirect to book detail page.
             res.redirect(theVape.url);

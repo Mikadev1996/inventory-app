@@ -8,7 +8,7 @@ nav {
     align-items: center;
     width: 100vw;
     height: 105px;
-    border-bottom: solid 1px rgb(79, 138, 197);
+    /*border-bottom: solid 1px rgb(79, 138, 197);*/
 }
 
 .nav-content {
