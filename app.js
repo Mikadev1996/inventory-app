@@ -50,8 +50,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const dev_db_url = "mongodb+srv://mika:mika@cluster0.ntegc.mongodb.net/inventory-app?retryWrites=true&w=majority";
-const myMongoDB = process.env.MONGODB_URI || dev_db_url;
+
+const myMongoDB = process.env.MONGODB_URI
 mongoose.connect(myMongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
